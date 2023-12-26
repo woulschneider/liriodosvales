@@ -1,1 +1,75 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pacientes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#" onclick="selecionarVersao('basica')">Versão Básica</a>
+        <a href="#" onclick="selecionarVersao('avancada')">Versão Avançada</a>
+    </div>
+
+    <div class="content">
+        <form id="cadastroForm">
+
+            <!-- Pergunta 1 -->
+            <div id="pergunta1" class="pergunta visivel">
+                <label for="acao">O que deseja fazer?</label>
+                <select id="acao" name="acao">
+                    <option value="cadastrar" selected>Cadastrar novo paciente</option>
+                    <option value="listar">Listar pacientes</option>
+                </select>
+                <div class="btn-container">
+                    <button type="button" onclick="mostrarProximaPergunta()">OK</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div id="pergunta2" class="pergunta">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <div class="btn-container">
+                    <button type="button" onclick="mostrarProximaPergunta('pergunta3')">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div id="pergunta3" class="pergunta">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required>
+                <div class="btn-container">
+                    <button type="button" onclick="mostrarProximaPergunta('pergunta4')">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div id="pergunta4" class="pergunta">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="btn-container">
+                    <button type="button" onclick="cadastrarPaciente()">Cadastrar</button>
+                </div>
+            </div>
+
+            <!-- Tabela de Pacientes -->
+            <table id="tabelaPaciente">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>E-mail</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaBody"></tbody>
+            </table>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
